@@ -46,6 +46,10 @@ public class Demo extends Application {
 
     @Override
     public void stop() throws Exception {
+        System.out.println("Manual change");
+        np.fileName.set("new-value");
+        assertThat(np.fileName.get(), equalTo("new-value"));
+        assertThat(p.fileName, equalTo("new-value"));
         System.out.println(p.toString());
         assertThat(np.dim.get(), equalTo(4));
         assertThat(p.dim, equalTo(4));
